@@ -1,19 +1,6 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-// import ReactMarkdown from 'react-markdown';
-// import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-// import { tomorrow } from 'react-syntax-highlighter/dist/esm/styles/prism';
-// import { Button, Input, ScrollArea } from '@/components/ui';
-// import {
-//   Trash2,
-//   Download,
-//   Upload,
-//   X,
-//   History,
-//   Edit2,
-//   Plus,
-// } from 'lucide-react';
 import { Header } from '@/components/Header';
 import { Sidebar } from '@/components/Sidebar';
 import { Footer } from '@/components/Footer';
@@ -60,7 +47,6 @@ export default function AIChat() {
     const newMessages = [...messages, userMessage];
     setMessages(newMessages);
     setInputMessage('');
-
     // setLoading(true);
     try {
       const res = await fetch('api', {
