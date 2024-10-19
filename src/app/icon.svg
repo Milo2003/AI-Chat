@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
+  <!-- Decoración de fondo con patrón radial -->
+  <defs>
+    <radialGradient id="grad1" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" style="stop-color:white;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:white;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+  <rect width="100" height="100" rx="20" fill="url(#grad1)"/>
+
+  <!-- Texto "N" estilizada con sombras -->
+  <text x="50%" y="50%" font-family="Arial, sans-serif" font-size="65" font-weight="bold" fill="black" text-anchor="middle" alignment-baseline="middle" filter="url(#shadow)">
+    N
+  </text>
+
+  <!-- Sombra detrás de la "N" -->
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feOffset result="offOut" in="SourceGraphic" dx="3" dy="3" />
+      <feGaussianBlur result="blurOut" in="offOut" stdDeviation="3" />
+      <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+    </filter>
+  </defs>
+
+  <!-- Decoración adicional en forma de triángulo en la parte superior derecha -->
+  <path d="M75,25 L90,40 L75,55 Z" fill="#1abc9c" opacity="0.9"/>
+</svg>
