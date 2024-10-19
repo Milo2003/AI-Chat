@@ -13,33 +13,34 @@ export default function AIChat() {
   const [chatHistory, setChatHistory] = useState([]);
   const [currentChatId, setCurrentChatId] = useState(null);
 
-  useEffect(() => {
-    const storedHistory = localStorage.getItem('chatHistory');
-    if (storedHistory) {
-      setChatHistory(JSON.parse(storedHistory));
-    }
-    const storedCurrentChatId = localStorage.getItem('currentChatId');
-    if (storedCurrentChatId) {
-      setCurrentChatId(storedCurrentChatId);
-      loadChat(storedCurrentChatId);
-    } else {
-      const welcomeMessage = {
-        text: '¡Bienvenido al chat de IA! Puedes preguntarme sobre código, listas o cualquier otro tema.',
-        isUser: false,
-      };
-      setMessages([welcomeMessage]);
-    }
-  }, []);
+  // useEffect(() => {
+  //   const storedHistory = localStorage.getItem('chatHistory');
+  //   if (storedHistory) {
+  //     console.log('storedHistory', storedHistory);
+  //     setChatHistory(JSON.parse(storedHistory));
+  //   }
+  //   const storedCurrentChatId = localStorage.getItem('currentChatId');
+  //   if (storedCurrentChatId) {
+  //     console.log('storedCurrentChatId', storedCurrentChatId);
+  //     setCurrentChatId(storedCurrentChatId);
+  //     loadChat(storedCurrentChatId);
+  //   }
+  //   const welcomeMessage = {
+  //     text: '¡Welcome to AI-Chat! How can I help you?',
+  //     isUser: false,
+  //   };
+  //   setMessages([welcomeMessage]);
+  // }, []);
 
-  useEffect(() => {
-    localStorage.setItem('chatHistory', JSON.stringify(chatHistory));
-  }, [chatHistory]);
+  // useEffect(() => {
+  //   localStorage.setItem('chatHistory', JSON.stringify(chatHistory));
+  // }, [chatHistory]);
 
-  useEffect(() => {
-    if (currentChatId) {
-      localStorage.setItem('currentChatId', currentChatId);
-    }
-  }, [currentChatId]);
+  // useEffect(() => {
+  //   if (currentChatId) {
+  //     localStorage.setItem('currentChatId', currentChatId);
+  //   }
+  // }, [currentChatId]);
 
   const handleSendMessage = async () => {
     if (!inputMessage.trim()) return;
@@ -71,10 +72,10 @@ export default function AIChat() {
           ),
         );
       } else {
-        const newChatId = Date.now().toString();
+        const newChatId = crypto.randomUUID();
         const newChat = {
           id: newChatId,
-          name: `Chat ${chatHistory.length + 1}`,
+          name: `11Chat ${chatHistory.length + 1}`,
           messages: updatedMessages,
         };
         setChatHistory((prev) => [...prev, newChat]);
@@ -91,13 +92,13 @@ export default function AIChat() {
     }
   };
 
-  const loadChat = (chatId) => {
-    const chat = chatHistory.find((c) => c.id === chatId);
-    if (chat) {
-      setMessages(chat.messages);
-      setCurrentChatId(chatId);
-    }
-  };
+  // const loadChat = (chatId) => {
+  //   const chat = chatHistory.find((c) => c.id === chatId);
+  //   if (chat) {
+  //     setMessages(chat.messages);
+  //     setCurrentChatId(chatId);
+  //   }
+  // };
   return (
     <div
       className={`flex h-screen transition-colors duration-200 bg-gray-100 text-black`}

@@ -23,6 +23,33 @@ export const Sidebar = ({
   const [editingChatId, setEditingChatId] = useState(null);
   const [editingChatName, setEditingChatName] = useState('');
 
+  useEffect(() => {
+    const storedHistory = localStorage.getItem('chatHistory');
+    const parsedHistory = JSON.parse(storedHistory);
+    const storedCurrentChatId = localStorage.getItem('currentChatId');
+    const welcomeMessage = {
+      text: '¡Welcome to AI-Chat! How can I help you?',
+      isUser: false,
+    };
+    if (parsedHistory === null) {
+      const initialChatId = crypto.randomUUID();
+      const initialChat = {
+        id: initialChatId,
+        name: 'Chat 1',
+        messages: [welcomeMessage],
+      };
+      setCurrentChatId(initialChatId);
+      setChatHistory([initialChat]);
+      // localStorage.setItem('chatHistory', JSON.stringify([initialChat]));
+    } else {
+      if (storedCurrentChatId) {
+        setCurrentChatId(storedCurrentChatId);
+        loadChat(storedCurrentChatId);
+      }
+    }
+    setMessages([welcomeMessage]);
+  }, []);
+
   const handleClearChat = () => {
     setMessages([]);
     setCurrentChatId(null);
@@ -79,11 +106,11 @@ export const Sidebar = ({
   };
 
   const createNewChat = () => {
-    const newChatId = Date.now().toString();
+    const newChatId = crypto.randomUUID();
     const newChat = {
       id: newChatId,
       name: `New Chat ${chatHistory.length + 1}`,
-      messages: [...messages],
+      messages: [],
     };
     setChatHistory((prev) => [...prev, newChat]);
     setMessages([]);
