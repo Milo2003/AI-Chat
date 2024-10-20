@@ -46,7 +46,7 @@ export default function AIChat() {
         const newChatId = crypto.randomUUID();
         const newChat = {
           id: newChatId,
-          name: `11Chat ${chatHistory.length + 1}`,
+          name: `Chat ${chatHistory.length + 1}`,
           messages: updatedMessages,
         };
         setChatHistory((prev) => [...prev, newChat]);
