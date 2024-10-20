@@ -1,8 +1,6 @@
-'use client';
-import React from 'react';
+import { forwardRef } from 'react';
 
-// Button Component
-export const Button = React.forwardRef(
+export const Button = forwardRef(
   ({ className, variant = 'default', size = 'default', ...props }, ref) => {
     const baseStyles =
       'inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background';
@@ -28,9 +26,10 @@ export const Button = React.forwardRef(
     );
   },
 );
+Button.displayName = 'Button';
 
 // Input Component
-export const Input = React.forwardRef(({ className, ...props }, ref) => {
+export const Input = forwardRef(({ className, ...props }, ref) => {
   return (
     <input
       className={`flex h-10 w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ${className}`}
@@ -39,38 +38,40 @@ export const Input = React.forwardRef(({ className, ...props }, ref) => {
     />
   );
 });
+Input.displayName = 'Input';
 
 // ScrollArea Component
 export const ScrollArea = ({ children, className }) => {
   return <div className={`overflow-auto ${className}`}>{children}</div>;
 };
+ScrollArea.displayName = 'ScrollArea';
 
 // DropdownMenu Components
-export const DropdownMenu = ({ children }) => {
-  return <div className="relative inline-block text-left">{children}</div>;
-};
+// export const DropdownMenu = ({ children }) => {
+//   return <div className="relative inline-block text-left">{children}</div>;
+// };
 
-export const DropdownMenuTrigger = ({ children, asChild }) => {
-  return <div>{children}</div>;
-};
+// export const DropdownMenuTrigger = ({ children, asChild }) => {
+//   return <div>{children}</div>;
+// };
 
-export const DropdownMenuContent = ({ children, align = 'center' }) => {
-  return (
-    <div
-      className={`absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none`}
-    >
-      {children}
-    </div>
-  );
-};
+// export const DropdownMenuContent = ({ children, align = 'center' }) => {
+//   return (
+//     <div
+//       className={`absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none`}
+//     >
+//       {children}
+//     </div>
+//   );
+// };
 
-export const DropdownMenuItem = ({ children, onClick }) => {
-  return (
-    <button
-      className="text-gray-700 block w-full text-left px-4 py-2 text-sm hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
-      onClick={onClick}
-    >
-      {children}
-    </button>
-  );
-};
+// export const DropdownMenuItem = ({ children, onClick }) => {
+//   return (
+//     <button
+//       className="text-gray-700 block w-full text-left px-4 py-2 text-sm hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+//       onClick={onClick}
+//     >
+//       {children}
+//     </button>
+//   );
+// };

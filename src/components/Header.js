@@ -3,7 +3,7 @@ import { Button } from './ui';
 import Image from 'next/image';
 import Icon from '../app/icon.svg';
 import Link from 'next/link';
-export const Header = ({ isSidebarOpen, setIsSidebarOpen, theme }) => {
+export const Header = ({ isSidebarOpen, setIsSidebarOpen }) => {
   return (
     <header
       className={`shadow-md p-4 flex justify-between items-center bg-white`}

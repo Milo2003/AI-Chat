@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Header } from '@/components/Header';
 import { Sidebar } from '@/components/Sidebar';
 import { Footer } from '@/components/Footer';
@@ -12,35 +12,6 @@ export default function AIChat() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [chatHistory, setChatHistory] = useState([]);
   const [currentChatId, setCurrentChatId] = useState(null);
-
-  // useEffect(() => {
-  //   const storedHistory = localStorage.getItem('chatHistory');
-  //   if (storedHistory) {
-  //     console.log('storedHistory', storedHistory);
-  //     setChatHistory(JSON.parse(storedHistory));
-  //   }
-  //   const storedCurrentChatId = localStorage.getItem('currentChatId');
-  //   if (storedCurrentChatId) {
-  //     console.log('storedCurrentChatId', storedCurrentChatId);
-  //     setCurrentChatId(storedCurrentChatId);
-  //     loadChat(storedCurrentChatId);
-  //   }
-  //   const welcomeMessage = {
-  //     text: '¡Welcome to AI-Chat! How can I help you?',
-  //     isUser: false,
-  //   };
-  //   setMessages([welcomeMessage]);
-  // }, []);
-
-  // useEffect(() => {
-  //   localStorage.setItem('chatHistory', JSON.stringify(chatHistory));
-  // }, [chatHistory]);
-
-  // useEffect(() => {
-  //   if (currentChatId) {
-  //     localStorage.setItem('currentChatId', currentChatId);
-  //   }
-  // }, [currentChatId]);
 
   const handleSendMessage = async () => {
     if (!inputMessage.trim()) return;
@@ -92,13 +63,6 @@ export default function AIChat() {
     }
   };
 
-  // const loadChat = (chatId) => {
-  //   const chat = chatHistory.find((c) => c.id === chatId);
-  //   if (chat) {
-  //     setMessages(chat.messages);
-  //     setCurrentChatId(chatId);
-  //   }
-  // };
   return (
     <div
       className={`flex h-screen transition-colors duration-200 bg-gray-100 text-black`}
