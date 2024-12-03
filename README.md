@@ -60,7 +60,7 @@ yarn dev
 ```
 Abre tu navegador y ve a http://localhost:3000 para ver la aplicación en ejecución.
 
-#Contribuciones
+## Contribuciones
 Si deseas contribuir al proyecto, no dudes en hacer un fork del repositorio, trabajar en tu copia y luego enviar un pull request con tus cambios.
 
 ¡Gracias por probar AI-Chat! 🚀
