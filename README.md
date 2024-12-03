@@ -16,38 +16,44 @@ Además, necesitarás configurar una variable de entorno llamada **GOOGLE_API_KE
 ```bash
 git clone git@github.com:Milo2003/AI-Chat.git
 Navega al directorio del proyecto:
-bash
+```
+```bash
 Copy code
 cd AI-Chat
+```
 Configurar las variables de entorno
 Crea un archivo .env.local en el directorio raíz del proyecto.
 Añade la siguiente línea al archivo, reemplazando your-google-api-key con tu clave de API de Google:
 env
+```
 Copy code
 GOOGLE_API_KEY=your-google-api-key
+```
 Instalación de dependencias
 Instala las dependencias necesarias ejecutando uno de los siguientes comandos según el gestor de paquetes que utilices:
 
 Con npm:
 
-bash
+```bash
 Copy code
 npm install
+```
 Con yarn:
-
-bash
+```bash
 Copy code
 yarn install
+```
 Ejecutar el proyecto localmente
 Una vez instaladas las dependencias, inicia el servidor de desarrollo:
 Con npm:
 
-bash
+```bash
 Copy code
 npm run dev
+```
 Con yarn:
 
-bash
+```bash
 Copy code
 yarn dev
 
